@@ -10,13 +10,13 @@ while True:
         print("Please type something.\n")
         continue
 
-    # API endpoint
+   
     url = "https://www.googleapis.com/books/v1/volumes"
 
-    # Parameters sent to API
+   
     params = {
         "q": query,
-        "maxResults": 5   # Show only 5 results
+        "maxResults": 5   
     }
 
     try:
@@ -26,7 +26,7 @@ while True:
         print("Error fetching data from Google Books API.\n")
         continue
 
-    # 'items' contains book results
+   
     items = data.get("items", [])
 
     if not items:
@@ -35,7 +35,7 @@ while True:
 
     print(f"\nFound {len(items)} books:\n")
 
-    # Loop through results
+    
     i = 1
     for book in items:
         info = book.get("volumeInfo", {})
@@ -51,3 +51,4 @@ while True:
         i += 1
 
     print("----------------------------\n")
+
