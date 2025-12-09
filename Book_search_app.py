@@ -1,14 +1,10 @@
 import requests
 
 print("***Book Search App***")
-print("Type any book name to search (type 'exit' to quit)\n")
+print("Type any book name to search\n")
 
 while True:
     query = input("Search book: ").strip()
-
-    if query.lower() == "exit":
-        print("Goodbye!")
-        break
 
     if not query:
         print("Please type something.\n")
@@ -40,7 +36,8 @@ while True:
     print(f"\nFound {len(items)} books:\n")
 
     # Loop through results
-    for i, book in enumerate(items, start=1):
+    i = 1
+    for book in items:
         info = book.get("volumeInfo", {})
 
         title = info.get("title", "No Title")
@@ -51,5 +48,6 @@ while True:
         print("   Author(s):", ", ".join(authors))
         print("   Published:", published)
         print()
+        i += 1
 
     print("----------------------------\n")
