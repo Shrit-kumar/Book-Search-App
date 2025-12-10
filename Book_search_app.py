@@ -1,6 +1,6 @@
 import requests
 
-print("***Book Search App***")
+print("\n***Book Search App***\n")
 print("Type any book name to search\n")
 
 while True:
@@ -10,13 +10,13 @@ while True:
         print("Please type something.\n")
         continue
 
-   
+
     url = "https://www.googleapis.com/books/v1/volumes"
 
-   
+
     params = {
         "q": query,
-        "maxResults": 5   
+        "maxResults": 5  
     }
 
     try:
@@ -26,7 +26,7 @@ while True:
         print("Error fetching data from Google Books API.\n")
         continue
 
-   
+
     items = data.get("items", [])
 
     if not items:
@@ -51,4 +51,3 @@ while True:
         i += 1
 
     print("----------------------------\n")
-
